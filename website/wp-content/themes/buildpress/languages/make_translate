@@ -1,0 +1,28 @@
+#!/bin/sh
+
+BASEDIR=$(dirname $0)
+# echo $BASEDIR/
+
+# delete the current translation
+rm $BASEDIR/*.pot
+
+# move unwanted folders
+mv $BASEDIR/../bower_components/ $BASEDIR/../../.
+mv $BASEDIR/../node_modules/ $BASEDIR/../../.
+mv $BASEDIR/../vendor/ $BASEDIR/../../.
+
+# execute
+php $BASEDIR/../_misc/translate/makepot.php wp-theme $BASEDIR/../.
+
+# move .pot file to right dir
+mv *.pot $BASEDIR/
+
+# move back folders
+mv $BASEDIR/../../bower_components/ $BASEDIR/../.
+mv $BASEDIR/../../node_modules/ $BASEDIR/../.
+mv $BASEDIR/../../vendor/ $BASEDIR/../.
+
+# copy file for the DB folder for translators
+cp -fp $BASEDIR/*.pot ~/Dropbox/ThemeForest/WP-translations/buildpress/
+
+exit 0
