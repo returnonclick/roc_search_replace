@@ -1,0 +1,21 @@
+# Created by .ignore support plugin (hsz.mobi)
+.gitignore
+.idea/
+website/cgi-bin/
+website/wp-content/cache/config/
+website/wp-content/cache/tmp/
+website/wp-content/plugins/__MACOSX/
+website/wp-content/plugins/contact-form-7/admin/images/
+website/wp-content/plugins/contact-form-7/images/service-icons/
+website/wp-content/themes/buildpress/bower_components/bootstrap-sass-official/assets/images/
+website/wp-content/upgrade/
+website/wp-content/uploads/2014/11/
+website/wp-content/uploads/2015/02/
+website/wp-content/uploads/2015/03/
+website/wp-content/uploads/2015/04/
+website/wp-content/uploads/2015/05/
+website/wp-content/uploads/2015/07/
+website/wp-content/uploads/2015/08/
+website/wp-content/uploads/2015/09/
+website/wp-content/uploads/2016/06/
+website/wp-content/uploads/2016/08/
