@@ -265,6 +265,10 @@ class icit_srdb {
 			'verbose'			=> false
 		), $args );
 
+		echo '<pre>';
+		print_r($args);
+		echo '</pre>';
+
 		// handle exceptions
 		set_exception_handler( array( $this, 'exceptions' ) );
 
@@ -321,7 +325,7 @@ class icit_srdb {
 		$this->db_setup();
 
 		if ( $this->db_valid() ) {
-
+			
 			// update engines
 			if ( $this->alter_engine ) {
 				$report = $this->update_engine( $this->alter_engine, $this->tables );
@@ -338,9 +342,7 @@ class icit_srdb {
 			}
 
 		} else {
-
 			$report = $this->report;
-
 		}
 
 		// store report

@@ -20,10 +20,15 @@
         </div>
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 col-md-6">
+                <div class="col-lg-12 col-md-12">
                     <div class="form-group">
-                        <label for="main_keyword">[Main-Keyword]</label>
-                        <input type="text" class="form-control" id="main_keyword" name="main_keyword" placeholder="main_keyword">
+                        <label for="website_url">[Website_URL]</label>
+                        <input type="text" class="form-control" id="website_url" name="website_url" placeholder="website_url">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="main_keyphrase">[Main_Keyphrase]</label>
+                        <input type="text" class="form-control" id="main_keyphrase" name="main_keyphrase" placeholder="main_keyphrase">
                     </div>
 
                     <div class="form-group">
@@ -42,6 +47,16 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="business_address">[Business-Address]</label>
+                        <input type="text" class="form-control" id="business_address" name="business_address" placeholder="business_address">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="abn">[ABN]</label>
+                        <input type="text" class="form-control" id="abn" name="abn" placeholder="abn">
+                    </div>
+
+                    <div class="form-group">
                         <label for="about_us">[About-Us]</label>
                         <textarea class="form-control" rows="5" id="about_us" name="about_us" placeholder="about_us"></textarea>
                     </div>
@@ -49,6 +64,10 @@
                     <div class="form-group">
                         <label for="about_us_short">[About-Us-Short]</label>
                         <textarea class="form-control" rows="2" id="about_us_short" name="about_us_short" placeholder="about_us_short"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="call_to_action">[Call-To-Action]</label>
+                        <textarea class="form-control" rows="2" id="call_to_action" name="call_to_action" placeholder="call_to_action"></textarea>
                     </div>
                 </div>
             </div>
@@ -67,7 +86,7 @@
         </div>
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 col-md-6">
+                <div class="col-lg-12 col-md-12">
                     <div class="form-group">
                         <label for="service_1">[Service-1]</label>
                         <input type="text" class="form-control" id="service_1" name="service_1" placeholder="service_1">
@@ -104,7 +123,7 @@
         </div>
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 col-md-6">
+                <div class="col-lg-12 col-md-12">
                     <div class="form-group">
                         <label for="service_2">[Service-2]</label>
                         <input type="text" class="form-control" id="service_2" name="service_2" placeholder="service_2">
@@ -141,7 +160,7 @@
         </div>
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 col-md-6">
+                <div class="col-lg-12 col-md-12">
                     <div class="form-group">
                         <label for="service_3">[Service-3]</label>
                         <input type="text" class="form-control" id="service_3" name="service_3" placeholder="service_3" >
@@ -178,7 +197,7 @@
         </div>
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 col-md-6">
+                <div class="col-lg-12 col-md-12">
                     <div class="form-group">
                         <label for="service_4">[Service-4]</label>
                         <input type="text" class="form-control" id="service_4" name="service_4" placeholder="service_4">
@@ -216,7 +235,7 @@
         </div>
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 col-md-6">
+                <div class="col-lg-12 col-md-12">
                     <div class="form-group">
                         <label for="testimonial_1">[Testimonial-1] author</label>
                         <textarea class="form-control" rows="2" id="testimonial_1" name="testimonial_1" placeholder="testimonial_1"></textarea>
@@ -241,7 +260,7 @@
         </div>
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 col-md-6">
+                <div class="col-lg-12 col-md-12">
                     <div class="form-group">
                         <label for="testimonial_2">[Testimonial-2] author</label>
                         <textarea class="form-control" rows="2" id="testimonial_2" name="testimonial_2" placeholder="testimonial_2"></textarea>

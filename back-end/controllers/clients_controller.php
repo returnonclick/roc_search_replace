@@ -6,20 +6,12 @@
  * Time: 2:53 PM
  */
 
-// always good here
-header( 'HTTP/1.1 200 OK' );
-header('Cache-Control: no-cache, no-store, must-revalidate'); // HTTP 1.1.
-header('Pragma: no-cache'); // HTTP 1.0.
-header('Expires: 0'); // Proxies.
-
-require_once( 'srdb.class.php' );
 require_once ('models/ClientDTO.php');
 require_once ('models/MetaDTO.php');
 require_once ('config/MetaConstants.php');
 require_once ('DataBaseCustomer.php');
 require_once ('ConfigDB.php');
-
-//require_once ('Search-Replace-DB-master/SearchReplace.php');
+require_once ('controllers/icit_srdb_roc.php');
 
   class ClientsController {
       
@@ -59,9 +51,13 @@ require_once ('ConfigDB.php');
       private function createMeta($client_id) {
 
           //$_POST data
-          $main_keyword         = !empty($_POST['main_keyword'])         ? $_POST['main_keyword']        : "";
+          $website_url          = !empty($_POST['website_url'])          ? $_POST['website_url']         : "";
+          $main_keyphrase       = !empty($_POST['main_keyphrase'])       ? $_POST['main_keyphrase']      : "";
+          $business_address     = !empty($_POST['business_address'])     ? $_POST['business_address']    : "";
+          $abn                  = !empty($_POST['abn'])                  ? $_POST['abn']                 : "";
           $about_us             = !empty($_POST['about_us'])             ? $_POST['about_us']            : "";
           $about_us_short       = !empty($_POST['about_us_short'])       ? $_POST['about_us_short']      : "";
+          $call_to_action       = !empty($_POST['call_to_action'])       ? $_POST['call_to_action']      : "";
           $service_1            = !empty($_POST['service_1'])            ? $_POST['service_1']           : "";
           $service_1_text       = !empty($_POST['service_1_text'])       ? $_POST['service_1_text']      : "";
           $service_1_excerpt    = !empty($_POST['service_1_excerpt'])    ? $_POST['service_1_excerpt']   : "";
@@ -83,11 +79,25 @@ require_once ('ConfigDB.php');
           $testimonial_2        = !empty($_POST['testimonial_2'])        ? $_POST['testimonial_2']       : "";
           $testimonial_2_text   = !empty($_POST['testimonial_2_text'])   ? $_POST['testimonial_2_text']  : "";
 
-          //Main Keyword
-          $main_keyword_meta = new MetaDTO();
-          $main_keyword_meta -> setNewMeta($client_id, MetaConstants::MAIN_KEYWORD, $main_keyword);
-          Metas::createMeta($main_keyword_meta);
-          
+          //Web Site URL
+          $website_url_meta = new MetaDTO();
+          $website_url_meta -> setNewMeta($client_id, MetaConstants::WEBSITE_URL, $website_url);
+          Metas::createMeta($website_url_meta);
+
+          //Main Keyphrase
+          $main_keyphrase_meta = new MetaDTO();
+          $main_keyphrase_meta -> setNewMeta($client_id, MetaConstants::MAIN_KEYPHRASE, $main_keyphrase);
+          Metas::createMeta($main_keyphrase_meta);
+
+          //Address
+          $business_address_meta = new MetaDTO();
+          $business_address_meta -> setNewMeta($client_id, MetaConstants::BUSINESS_ADDRESS, $business_address);
+          Metas::createMeta($business_address_meta);
+
+          //ABN
+          $abn_meta = new MetaDTO();
+          $abn_meta -> setNewMeta($client_id, MetaConstants::ABN, $abn);
+          Metas::createMeta($abn);
           
           //About Us
           $about_us_meta = new MetaDTO();
@@ -98,6 +108,11 @@ require_once ('ConfigDB.php');
           $about_us_short_meta = new MetaDTO();
           $about_us_short_meta -> setNewMeta($client_id, MetaConstants::ABOUT_US_SHORT, $about_us_short);
           Metas::createMeta($about_us_short_meta);
+
+          //Call To Action
+          $call_to_action_meta = new MetaDTO();
+          $call_to_action_meta -> setNewMeta($client_id, MetaConstants::CALL_TO_ACTION, $call_to_action);
+          Metas::createMeta($call_to_action_meta);
 
           //Service 1
           $service_1_meta = new MetaDTO();
@@ -204,9 +219,13 @@ require_once ('ConfigDB.php');
       private function updateMeta($client_id) {
 
           //$_POST data
-          $main_keyword         = !empty($_POST['main_keyword'])         ? $_POST['main_keyword']        : "";
+          $website_url          = !empty($_POST['website_url'])          ? $_POST['website_url']         : "";
+          $main_keyphrase       = !empty($_POST['main_keyphrase'])       ? $_POST['main_keyphrase']      : "";
+          $business_address     = !empty($_POST['business_address'])     ? $_POST['business_address']    : "";
+          $abn                  = !empty($_POST['abn'])                  ? $_POST['abn']                 : "";
           $about_us             = !empty($_POST['about_us'])             ? $_POST['about_us']            : "";
           $about_us_short       = !empty($_POST['about_us_short'])       ? $_POST['about_us_short']      : "";
+          $call_to_action       = !empty($_POST['call_to_action'])       ? $_POST['call_to_action']      : "";
           $service_1            = !empty($_POST['service_1'])            ? $_POST['service_1']           : "";
           $service_1_text       = !empty($_POST['service_1_text'])       ? $_POST['service_1_text']      : "";
           $service_1_excerpt    = !empty($_POST['service_1_excerpt'])    ? $_POST['service_1_excerpt']   : "";
@@ -229,10 +248,25 @@ require_once ('ConfigDB.php');
           $testimonial_2_text   = !empty($_POST['testimonial_2_text'])   ? $_POST['testimonial_2_text']  : "";
 
 
-          //Main Keyword
-          $main_keyword_meta = new MetaDTO();
-          $main_keyword_meta -> setNewMeta($client_id, MetaConstants::MAIN_KEYWORD, $main_keyword);
-          Metas::saveMeta($main_keyword_meta);
+          //Web Site URL
+          $website_url_meta = new MetaDTO();
+          $website_url_meta -> setNewMeta($client_id, MetaConstants::WEBSITE_URL, $website_url);
+          Metas::createMeta($website_url_meta);
+
+          //Main Keyphrase
+          $main_keyphrase_meta = new MetaDTO();
+          $main_keyphrase_meta -> setNewMeta($client_id, MetaConstants::MAIN_KEYPHRASE, $main_keyphrase);
+          Metas::createMeta($main_keyphrase_meta);
+
+          //Address
+          $business_address_meta = new MetaDTO();
+          $business_address_meta -> setNewMeta($client_id, MetaConstants::BUSINESS_ADDRESS, $business_address);
+          Metas::createMeta($business_address_meta);
+
+          //ABN
+          $abn_meta = new MetaDTO();
+          $abn_meta -> setNewMeta($client_id, MetaConstants::ABN, $abn);
+          Metas::createMeta($abn);
 
           //About Us
           $about_us_meta = new MetaDTO();
@@ -243,6 +277,11 @@ require_once ('ConfigDB.php');
           $about_us_short_meta = new MetaDTO();
           $about_us_short_meta -> setNewMeta($client_id, MetaConstants::ABOUT_US_SHORT, $about_us_short);
           Metas::saveMeta($about_us_short_meta);
+
+          //Call To Action
+          $call_to_action_meta = new MetaDTO();
+          $call_to_action_meta -> setNewMeta($client_id, MetaConstants::CALL_TO_ACTION, $call_to_action);
+          Metas::createMeta($call_to_action_meta);
 
           //Service 1
           $service_1_meta = new MetaDTO();
@@ -393,85 +432,21 @@ require_once ('ConfigDB.php');
 
           $this -> SplitSQL('./file/rocmedia.sql', ";", $client_id . "-" . $client->business_name);
 
-          //$GUID_FILE    = "new.rocmedia.com.au";
-          //$GUID_LOCAL   = "localhost:8888/ROC-Client-System-Generator/website";
-
-          $GUID_FILE    = "[Business-Name]";
-          $GUID_LOCAL   = "Test 1";
-
-          //SearchReplace::__init($GUID_FILE, $GUID_LOCAL);
-
-
-          //$searchreplace =  icit_srdb::__construct();
-
-          //$all_tables = array();
-          $all_tables_mysql = DataBaseCustomer::execute('SHOW TABLES');
-          //$table = mysqli_fetch_array($all_tables_mysql, MYSQLI_ASSOC);
-
-          while ($table = mysqli_fetch_array($all_tables_mysql, MYSQLI_NUM)) {
-              $all_tables[] = $table[0];
-          }
-
-
-          //print_r($all_tables);
-
-
-          // call search replace class
-          $args = array (
-              'verbose' => 1,
-              'dry_run' => '',
-              'host' => ConfigDB::HOST,
-              'user' => ConfigDB::USERNAME,
-              'name' => ConfigDB::DB_CUSTOMER,
-              'pass' => ConfigDB::PASSWORD,
-              'search' => $GUID_FILE,
-              'replace' => $GUID_LOCAL
-          );
-
-
-          echo '<pre>';
-
-          print_r($args);
-
-          $report = new icit_srdb_roc( $args );
-
-          print_r($report);
-
-          echo '</pre>';
-
-          //SearchReplace::__init($GUID_FILE, $GUID_LOCAL);
-
-          //$client_id = $_POST['client_id'];
-          //$client = Clients::getObject($client_id);
-
-
-          //$GUID_FILE    = "[Business-Name]";
-          //$GUID_LOCAL   = "Test 1";
-
-          //SearchReplace::__init(MetaConstants::BUSINESS_NAME, $client->business_name);
-          //SearchReplace::__init($GUID_FILE, $GUID_LOCAL);
-
-          /*
-
-          SearchReplace::__init(MetaConstants::BUSINESS_PHONE, $client->business_phone);
-          SearchReplace::__init(MetaConstants::BUSINESS_EMAIL, $client->business_email);
+          new icit_srdb_roc( MetaConstants::BUSINESS_NAME, $client->business_name );
+          new icit_srdb_roc( MetaConstants::BUSINESS_PHONE, $client->business_phone );
+          new icit_srdb_roc( MetaConstants::BUSINESS_EMAIL, $client->business_email );
 
           $metas = Metas::getObject($client_id);
 
           foreach($metas as $meta) {
-              print_r($meta->meta_value);
-              SearchReplace::__init($meta->meta_key, $meta->meta_value);
+              new icit_srdb_roc( $meta->meta_key, $meta->meta_value );
           }
 
-*/
-          
           $this -> index();
       }
 
       public function SplitSQL($file, $delimiter, $log_file_name)
       {
-
-
 
           set_time_limit(0);
 

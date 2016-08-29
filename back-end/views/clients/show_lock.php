@@ -11,8 +11,17 @@ require_once ('config/MetaConstants.php');
 
 foreach($metas as $meta) {
 
-    if ($meta -> meta_key == MetaConstants::MAIN_KEYWORD) {
-        $main_keyword = $meta -> meta_value;
+    if ($meta -> meta_key == MetaConstants::WEBSITE_URL) {
+        $website_url = $meta -> meta_value;
+    }
+    if ($meta -> meta_key == MetaConstants::MAIN_KEYPHRASE) {
+        $main_keyphrase = $meta -> meta_value;
+    }
+    if ($meta -> meta_key == MetaConstants::BUSINESS_ADDRESS) {
+        $business_address = $meta -> meta_value;
+    }
+    if ($meta -> meta_key == MetaConstants::ABN) {
+        $abn = $meta -> meta_value;
     }
     if ($meta -> meta_key == MetaConstants::ABOUT_US) {
         $about_us = $meta -> meta_value;
@@ -23,7 +32,10 @@ foreach($metas as $meta) {
     if ($meta -> meta_key == MetaConstants::ABOUT_US_SHORT) {
         $about_us_short = $meta -> meta_value;
     }
-    if ($meta -> meta_key == MetaConstants::SERVICE_2) {
+    if ($meta -> meta_key == MetaConstants::CALL_TO_ACTION) {
+        $call_to_action = $meta -> meta_value;
+    }
+    if ($meta -> meta_key == MetaConstants::SERVICE_1) {
         $service_1 = $meta -> meta_value;
     }
     if ($meta -> meta_key == MetaConstants::SERVICE_1_TEXT) {
@@ -108,8 +120,13 @@ $roc_id         = $client -> roc_id;
             <div class="row">
                 <div class="col-lg-6 col-md-6">
                     <div class="form-group">
-                        <label for="main_keyword">[Main-Keyword]</label>
-                        <input type="text" class="form-control" id="main_keyword" name="main_keyword" placeholder="main_keyword" value="<?php echo $main_keyword ?>" readonly="readonly">
+                        <label for="website_url">[Website_URL]</label>
+                        <input type="text" class="form-control" id="website_url" name="website_url" placeholder="website_url" value="<?php echo $website_url ?>" readonly="readonly">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="main_keyphrase">[Main_Keyphrase]</label>
+                        <input type="text" class="form-control" id="main_keyphrase" name="main_keyphrase" placeholder="main_keyphrase" value="<?php echo $main_keyphrase ?>" readonly="readonly">
                     </div>
 
                     <div class="form-group">
@@ -128,6 +145,16 @@ $roc_id         = $client -> roc_id;
                     </div>
 
                     <div class="form-group">
+                        <label for="business_address">[Business-Address]</label>
+                        <input type="text" class="form-control" id="business_address" name="business_address" placeholder="business_address" value="<?php echo $business_address; ?>" readonly="readonly">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="abn">[ABN]</label>
+                        <input type="text" class="form-control" id="abn" name="abn" placeholder="abn" value="<?php echo $abn; ?>" readonly="readonly">
+                    </div>
+                    
+                    <div class="form-group">
                         <label for="about_us">[About-Us]</label>
                         <textarea class="form-control" rows="5" id="about_us" name="about_us" placeholder="about_us" readonly="readonly"><?php echo $about_us ?></textarea>
                     </div>
@@ -135,6 +162,11 @@ $roc_id         = $client -> roc_id;
                     <div class="form-group">
                         <label for="about_us_short">[About-Us-Short]</label>
                         <textarea class="form-control" rows="2" id="about_us_short" name="about_us_short" placeholder="about_us_short" readonly="readonly"><?php echo $about_us_short ?></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="call_to_action">[Call-To-Action]</label>
+                        <textarea class="form-control" rows="2" id="call_to_action" name="call_to_action" placeholder="call_to_action" readonly="readonly"><?php echo $call_to_action ?></textarea>
                     </div>
                 </div>
             </div>

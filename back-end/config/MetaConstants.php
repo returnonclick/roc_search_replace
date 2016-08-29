@@ -8,12 +8,16 @@
 
 class MetaConstants {
 
-    const BUSINESS_NAME          = "[Business-Name]"; //OK
-    const BUSINESS_PHONE         = "[Business-Phone]"; //PROBLEM
-    const BUSINESS_EMAIL         = "[Business-Email]";//OK
-    const MAIN_KEYWORD           = "[Main-Keyword]"; //OK
-    const ABOUT_US               = "[About-Us]"; //PROBLEM
+    const BUSINESS_NAME          = "[Business-Name]";
+    const BUSINESS_PHONE         = "[Business-Phone]";
+    const BUSINESS_EMAIL         = "[Business-Email]";
+    const BUSINESS_ADDRESS       = "[Business-Address]";
+    const ABN                    = "[ABN-Number]";
+    const WEBSITE_URL            = "new.rocmedia.com.au";
+    const MAIN_KEYPHRASE         = "[Main-Keyphrase]";
+    const ABOUT_US               = "[About-Us]";
     const ABOUT_US_SHORT         = "[About-Us-Short]";
+    const CALL_TO_ACTION         = "[Call-To-Action]";
     const SERVICE_1              = "[Service-1]";
     const SERVICE_1_TEXT         = "[Service-1-Text]";
     const SERVICE_1_EXCERPT      = "[Service-1-Excerpt]";

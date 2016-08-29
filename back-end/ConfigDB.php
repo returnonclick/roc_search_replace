@@ -12,5 +12,4 @@ class ConfigDB {
     const PASSWORD      = "Retu.918273";
     const DB_DEFAULT    = "returnonclick_searchreplace";
     const DB_CUSTOMER   = "returnonclick_customer";
-    const PORT          = "3306";
 }
